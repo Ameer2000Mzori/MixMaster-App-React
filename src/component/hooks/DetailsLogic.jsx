@@ -8,7 +8,6 @@ const DetailsLogic = ({ id, setActiveDrinkId }) => {
 
   if (!data || !data.drinks || data.drinks.length === 0) return null
 
-  console.log(data)
   return (
     <>
       <div
