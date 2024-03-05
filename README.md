@@ -42,7 +42,6 @@
   <li><a href="https://expressjs.com/">Expressjs</a></li>
   <li><a href="https://www.mongodb.com/">Mongodb</a></li>
  <li><a href="https://prettier.io/">Prettier</a></li>
-  <li><a href="https://eslint.org/">Eslint</a></li>
   </ul>
 </details>
 
@@ -55,17 +54,7 @@
 - **[TAILWIND ]**
 - **[JAVASCRIPT ]**
 - **[REACT ]**
-
-- **[BACKEND ]**
-- **[NODE.JS ]**
-- **[EXPRESS.JS ]**
-- **[MANGO.DB ]**
-
-- **[TOOLS ]**
-- **[ESLINT ]**
 - **[PRETTIER ]**
-
-- **[AND MORE ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
