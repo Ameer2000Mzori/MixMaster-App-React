@@ -12,7 +12,7 @@ const DetailsLogic = ({ id, setActiveDrinkId }) => {
   return (
     <>
       <div
-        className="w-[90vw] h-[90vh] flex flex-col text-center items-center gap-5 bg-[#F4DFC8] rounded-md overflow-hidden shadow-xl fixed top-[5%]"
+        className=" w-[90vw] h-[90vh]  md:h-[500px]  md:w-[500px] md:top-[25%] flex flex-col text-center items-center  bg-[#F4DFC8] rounded-md overflow-hidden shadow-xl fixed top-[5%]"
         key={data.drinks[0].idDrink}
       >
         <button
@@ -28,17 +28,21 @@ const DetailsLogic = ({ id, setActiveDrinkId }) => {
           src={data.drinks[0].strDrinkThumb}
           alt={data.drinks[0].strDrink}
         />
-        <div className="flex-row flex text-center items-center justify-between w-[100%] h-[100%] p-2">
-          <div className="text-black w-[40%] h-[100%] text-center items-center justify-center flex flex-col">
-            <p> {data.drinks[0].strDrink}</p>
+        <div className="flex-col flex text-center items-center justify-between w-[100%] h-[50%] p-2 bg-white">
+          <div className="text-black w-[100%] h-[50%] text-center items-center justify-center flex flex-col">
+            <p> name : {data.drinks[0].strDrink}</p>
             {data.drinks[0].strVideo ? (
-              <a href={data.drinks[0].strVideo}>video</a>
+              <a href={data.drinks[0].strVideo} target="_blank">
+                video
+              </a>
             ) : (
               <a>this item has no video</a>
             )}
           </div>
-          <div className="text-black w-[40%] h-[100%] text-center items-center justify-center flex flex-col">
-            <p> {data.drinks[0].strInstructions}</p>
+
+          <div className="text-black w-[100%] h-[50%] text-center items-center justify-center flex flex-col ">
+            <h1>"about"</h1>
+            <p className="max-w-[50vw]"> {data.drinks[0].strInstructions}</p>
           </div>
         </div>
       </div>
