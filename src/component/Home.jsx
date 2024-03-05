@@ -24,8 +24,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-[100vh] w-[100vw] text-center items-center justify-center flex flex-col overflow-x-hidden gap-12 pt-40 ">
-        <div className="flex flex-col text-center items-center justify-center gap-4 w-[300px] h-[150px] bg-zinc-400 rounded-md text-white">
+      <div className=" w-[100vw] text-center items-center justify-center flex flex-col overflow-x-hidden gap-12 pt-40 ">
+        <div className="flex flex-col text-center items-center justify-center gap-4 w-[300px] h-[150px] bg-[#F4EAE0] rounded-md text-black">
           <h1>search something</h1>
           <div className=" flex flex-row text-center items-center justify-center gap-4 ">
             <input
@@ -49,7 +49,7 @@ const Home = () => {
           {data.drinks.map((drink) => {
             return (
               <div
-                className="w-[300px] h-[350px] flex flex-col text-center items-center  gap-5 bg-zinc-400  rounded-md overflow-hidden"
+                className="w-[300px] h-[350px] flex flex-col text-center items-center  gap-5 bg-[#F4DFC8]  rounded-md overflow-hidden shadow-xl "
                 key={drink.idDrink}
               >
                 <img
@@ -57,14 +57,16 @@ const Home = () => {
                   src={drink.strDrinkThumb}
                   alt=""
                 />
-                <div className="flex-row flex text-center items-center justify-evenly w-[100%] h-[50px]">
-                  <div className="text-white">
-                    <h1>{drink.strDrink}</h1>
-                    <h2>{drink.strAlcoholic}</h2>
+                <div className="flex-row flex text-center items-center justify-between w-[100%] h-[100%] p-2">
+                  <div className="text-black w-[50%] h-[100%] text-center items-center justify-center flex flex-col">
+                    <h1 className="text-[15px] ">{drink.strDrink}</h1>
+                    <h2 className="text-[11px]">{drink.strAlcoholic}</h2>
                   </div>
-                  <div className="text-white">
-                    <h1>drink id: {drink.idDrink}</h1>
-                    <button>more details</button>
+                  <div className="text-black w-[50%] h-[100%] text-center items-center justify-center flex flex-col ">
+                    <h1>id: {drink.idDrink}</h1>
+                    <button className="bg-[#000000] p-1 rounded-md text-white hover:bg-blue-400 active:bg-blue-200">
+                      more details
+                    </button>
                   </div>
                 </div>
               </div>

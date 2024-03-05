@@ -8,13 +8,15 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path={'*'} element={<NotFound />}></Route>
-          <Route path={'/'} element={<Home />}></Route>
-          <Route path={'/about'} element={<About />}></Route>
-          <Route path={'/newsletter'} element={<NewsLetter />}></Route>
-        </Routes>
+        <div className="bg-zinc-200">
+          <Navbar />
+          <Routes>
+            <Route path={'*'} element={<NotFound />}></Route>
+            <Route path={'/'} element={<Home />}></Route>
+            <Route path={'/about'} element={<About />}></Route>
+            <Route path={'/newsletter'} element={<NewsLetter />}></Route>
+          </Routes>
+        </div>
       </Router>
     </>
   )
