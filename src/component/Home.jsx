@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react'
+import SearchLogic from './hooks/SearchLogic.jsx'
+
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
-  const [getSearchTerm, setGetSearchTerm] = useState('')
+  const [getSearchTerm, setGetSearchTerm] = useState('gin')
+
+  const { data, isLoading, isError } = SearchLogic(getSearchTerm)
 
   const startSearching = () => {
     setGetSearchTerm(searchTerm)
   }
 
-  useEffect(() => {
-    console.log(getSearchTerm)
-  }, [getSearchTerm])
+  if (isLoading)
+    return (
+      <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+        loading....
+      </div>
+    )
+  if (isError)
+    return (
+      <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+        there was an error...{' '}
+      </div>
+    )
 
   return (
     <>
