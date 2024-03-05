@@ -12,7 +12,7 @@ const DetailsLogic = ({ id, setActiveDrinkId }) => {
   return (
     <>
       <div
-        className=" w-[90vw] h-[90vh]  md:h-[500px]  md:w-[500px] md:top-[25%] flex flex-col text-center items-center  bg-[#F4DFC8] rounded-md overflow-hidden shadow-xl fixed top-[5%]"
+        className=" w-[90vw] h-[90vh]  md:h-[500px]  md:w-[500px] md:top-[25%] flex flex-col text-center items-center  bg-[#F4DFC8] rounded-md overflow-hidden shadow-xl fixed top-[5%] z-20"
         key={data.drinks[0].idDrink}
       >
         <button
