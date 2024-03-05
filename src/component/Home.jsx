@@ -5,7 +5,7 @@ import SearchLogic from './hooks/SearchLogic.jsx'
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [getSearchTerm, setGetSearchTerm] = useState('gin')
-  const [showCard, setShowCard] = useState(false)
+  const [activeDrinkId, setActiveDrinkId] = useState(0)
 
   const { data, isLoading, isError } = SearchLogic(getSearchTerm)
 
@@ -25,12 +25,13 @@ const Home = () => {
   console.log(data, isError, isLoading)
 
   const showDetails = (id) => {
-    DetailsLogic(id)
+    id = Number(id)
+    setActiveDrinkId(id)
   }
 
   return (
     <>
-      <div className=" w-[100vw] text-center items-center justify-center flex flex-col overflow-x-hidden gap-12 pt-40 ">
+      <div className="  text-center items-center justify-center flex flex-col overflow-x-hidden gap-12 pt-40 ">
         <div className="flex flex-col text-center items-center justify-center gap-4 w-[300px] h-[150px] bg-[#F4EAE0] rounded-md text-black">
           <h1>search something</h1>
           <div className=" flex flex-row text-center items-center justify-center gap-4 ">
@@ -51,7 +52,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="h-[60vh] w-[80vw] flex flex-row text-center items-center justify-center gap-4 flex-wrap">
+        <div className=" w-[80vw] flex flex-row text-center items-center justify-center gap-4 flex-wrap">
           {data.drinks.map((drink) => {
             return (
               <div
@@ -84,7 +85,12 @@ const Home = () => {
             )
           })}
         </div>
-        {showCard && <DetailsLogic />}
+        {activeDrinkId ? (
+          <DetailsLogic
+            id={activeDrinkId}
+            setActiveDrinkId={setActiveDrinkId}
+          />
+        ) : null}
       </div>
     </>
   )
