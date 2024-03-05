@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NewsLetterForm = () => {
-  return <div>NewsLetterForm</div>
+  return
 }
 
 export default NewsLetterForm

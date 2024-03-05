@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from 'react-router-dom'
 import Home from './component/Home.jsx'
 import About from './component/About.jsx'
 import NotFound from './component/NotFound.jsx'
