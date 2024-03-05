@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import DetailsLogic from './hooks/DetailsLogic.jsx'
 import SearchLogic from './hooks/SearchLogic.jsx'
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [getSearchTerm, setGetSearchTerm] = useState('gin')
+  const [showCard, setShowCard] = useState(false)
 
   const { data, isLoading, isError } = SearchLogic(getSearchTerm)
 
@@ -21,6 +23,10 @@ const Home = () => {
     )
 
   console.log(data, isError, isLoading)
+
+  const showDetails = (id) => {
+    DetailsLogic(id)
+  }
 
   return (
     <>
@@ -64,7 +70,12 @@ const Home = () => {
                   </div>
                   <div className="text-black w-[50%] h-[100%] text-center items-center justify-center flex flex-col ">
                     <h1>id: {drink.idDrink}</h1>
-                    <button className="bg-[#000000] p-1 rounded-md text-white hover:bg-blue-400 active:bg-blue-200">
+                    <button
+                      onClick={() => {
+                        showDetails(drink.idDrink)
+                      }}
+                      className="bg-[#000000] p-1 rounded-md text-white hover:bg-blue-400 active:bg-blue-200"
+                    >
                       more details
                     </button>
                   </div>
@@ -73,6 +84,7 @@ const Home = () => {
             )
           })}
         </div>
+        {showCard && <DetailsLogic />}
       </div>
     </>
   )

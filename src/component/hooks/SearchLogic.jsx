@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 const SearchLogic = (searchTerm) => {
-  const { data, isLoading, isError } = new useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['searchTerm', searchTerm],
     queryFn: () =>
       axios
