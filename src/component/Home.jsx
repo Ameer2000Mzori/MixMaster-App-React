@@ -7,10 +7,6 @@ const Home = () => {
 
   const { data, isLoading, isError } = SearchLogic(getSearchTerm)
 
-  const startSearching = () => {
-    setGetSearchTerm(searchTerm)
-  }
-
   if (isLoading)
     return (
       <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -24,12 +20,14 @@ const Home = () => {
       </div>
     )
 
+  console.log(data, isError, isLoading)
+
   return (
     <>
-      <div className="h-[100vh] w-[100vw] text-center items-center justify-evenly flex flex-col">
+      <div className="h-[100vh] w-[100vw] text-center items-center justify-center flex flex-col overflow-x-hidden gap-12 pt-40 ">
         <div className="flex flex-col text-center items-center justify-center gap-4 w-[300px] h-[150px] bg-zinc-400 rounded-md text-white">
           <h1>search something</h1>
-          <div className=" flex flex-row text-center items-center justify-center gap-4">
+          <div className=" flex flex-row text-center items-center justify-center gap-4 ">
             <input
               value={searchTerm}
               onChange={(e) => {
@@ -38,10 +36,41 @@ const Home = () => {
               type="text"
               className="text-black text-start pl-4 rounded-sm"
             />
-            <button onClick={startSearching}>Search</button>
+            <button
+              onClick={() => {
+                setGetSearchTerm(searchTerm)
+              }}
+            >
+              Search
+            </button>
           </div>
         </div>
-        <div></div>
+        <div className="h-[60vh] w-[80vw] flex flex-row text-center items-center justify-center gap-4 flex-wrap">
+          {data.drinks.map((drink) => {
+            return (
+              <div
+                className="w-[300px] h-[350px] flex flex-col text-center items-center  gap-5 bg-zinc-400  rounded-md overflow-hidden"
+                key={drink.idDrink}
+              >
+                <img
+                  className="h-[250px] w-[100%] object-cover"
+                  src={drink.strDrinkThumb}
+                  alt=""
+                />
+                <div className="flex-row flex text-center items-center justify-evenly w-[100%] h-[50px]">
+                  <div className="text-white">
+                    <h1>{drink.strDrink}</h1>
+                    <h2>{drink.strAlcoholic}</h2>
+                  </div>
+                  <div className="text-white">
+                    <h1>drink id: {drink.idDrink}</h1>
+                    <button>more details</button>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </>
   )
