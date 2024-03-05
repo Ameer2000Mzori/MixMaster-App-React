@@ -20,4 +20,5 @@ function App() {
   )
 }
 
+// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=gin
 export default App
